@@ -42,6 +42,8 @@ window.onload = function () {
 		  }else{
 			  break;
 		  }
+		  i++;
+		while(1){
 		  var temp=readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/concept"+i+".md");
 		  if(temp!=-1){
 			var no = temp.split('\n')[0].split(' | ')[0];
@@ -50,7 +52,8 @@ window.onload = function () {
 		  }else{
 			  break;
 		  }
-		  i++;
+			i++;
+		}
 		}
 		concept_mark="### 개념\n";
 		tutorial_mark="### 튜토리얼\n"
