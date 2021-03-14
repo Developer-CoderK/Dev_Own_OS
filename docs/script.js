@@ -17,25 +17,42 @@ function readfile(file)
     return contenst;
 }
 
+function searchParam(key) {
+  const query = new URLSearchParams(location.search);
+  if(query.has(key)){
+	return query.get(key);
+  }else{
+	  return -1;
+  }
+};
+
 window.onload = function () {
-	var i = 1;
-	var tutorial = {};
-	var tutorial_mark = 0;
-	while (1) {
-	  var temp=readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/step"+i+".md");
-	  if(temp!=-1){
-		var no = temp.split('\n')[0].split(' | ')[0];
-		var name = temp.split('\n')[0].split(' | ')[1];
-		tutorial[no]=name;
-      }else{
-		  break;
-	  }
-	  i++;
+	if(searchParam("stepno")===-1 && searchParam("conceptno")===-1){
+		var i = 1;
+		var tutorial = {};
+		var tutorial_mark = 0;
+		while (1) {
+		  var temp=readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/step"+i+".md");
+		  if(temp!=-1){
+			var no = temp.split('\n')[0].split(' | ')[0];
+			var name = temp.split('\n')[0].split(' | ')[1];
+			tutorial[no]=name;
+		  }else{
+			  break;
+		  }
+		  i++;
+		}
+		tutorial_mark="### 튜토리얼\n"
+		for (i = 1; i < Object.keys(tutorial).length+1; i++) {
+		  tutorial_mark+="[1. "+tutorial[i]+"](http://www.osdev.kro.kr/?stepno="+i+")\n";
+		}
+		document.getElementById('content').innerHTML =
+			marked(tutorial_mark);
+	}else{
+		var stepno=searchParam("stepno");
+		var conceptno=searchParam("conceptno");
+		var content = readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/step"+stepno+".md")
+		document.getElementById('content').innerHTML =
+			marked(content);
 	}
-	tutorial_mark="### 튜토리얼\n"
-	for (i = 1; i < Object.keys(tutorial).length+1; i++) {
-	  tutorial_mark+="[1. "+tutorial[i]+"](http://www.osdev.kro.kr/tutorial"+i+")\n";
-	}
-	document.getElementById('tutorial').innerHTML =
-		marked(tutorial_mark);
 }
