@@ -34,7 +34,7 @@ window.onload = function () {
 	}
 	tutorial_mark="### 튜토리얼\n"
 	for (i = 1; i < Object.keys(tutorial).length+1; i++) {
-	  tutorial_mark+="[1. "+tutorial[i]+"](http://google.com/)\n";
+	  tutorial_mark+="[1. "+tutorial[i]+"](http://www.osdev.kro.kr/tutorial"+i+")\n";
 	}
 	document.getElementById('tutorial').innerHTML =
 		marked(tutorial_mark);
