@@ -42,9 +42,6 @@ window.onload = function () {
 		  }else{
 			  break;
 		  }
-		  i++;
-		}
-		while (1) {
 		  var temp=readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/concept"+i+".md");
 		  if(temp!=-1){
 			var no = temp.split('\n')[0].split(' | ')[0];
@@ -68,12 +65,22 @@ window.onload = function () {
 	}else{
 		var stepno=searchParam("stepno");
 		var conceptno=searchParam("conceptno");
-		var temp = readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/step"+stepno+".md").split("\n");
-		var content = "";
-		for(i=1; i < temp.length; i++){
-			content+=temp[i];
+		if(conceptno===-1){
+			var temp = readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/step"+stepno+".md").split("\n");
+			var content = "";
+			for(i=1; i < temp.length; i++){
+				content+=temp[i];
+			}
+			document.getElementById('content').innerHTML =
+				marked(content);
+		}else{
+			var temp = readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/concept"+conceptno+".md").split("\n");
+			var content = "";
+			for(i=1; i < temp.length; i++){
+				content+=temp[i];
+			}
+			document.getElementById('content').innerHTML =
+				marked(content);
 		}
-		document.getElementById('content').innerHTML =
-			marked(content);
 	}
 }
