@@ -16,3 +16,24 @@ function readfile(file)
     rawFile.send(null);
     return contenst;
 }
+
+window.onload = function () {
+	var i = 1;
+	var tutorial = {};
+	while (1) {
+	  var temp=readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/step"+i+".md");
+	  if(temp!=-1){
+		var no = temp.split('\n')[0].split(' | ')[0];
+		var name = temp.split('\n')[0].split(' | ')[1];
+		tutorial[no]=name;
+      }else{
+		  break;
+	  }
+	  i++;
+	}
+	for (i = 1; i < Object.keys(tutorial).length+1; i++) {
+	  console.log(tutorial[i]);
+	}
+	document.getElementById('tutorial').innerHTML =
+		marked("### 튜토리얼\n```\n\n```");
+}
