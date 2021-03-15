@@ -182,6 +182,7 @@ qemu-system-x86_64.exe -L "C:\Program Files\qemu" -m 64 -rtc base=localtime -fda
 저는 이렇게 설정하였습니다.
 그리고 실행하면....
 ![결과](https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/Image/run1.png)
+
 보이시나요? 위를 보면 빨간색바탕에 밝은 초록으로 H가 출력된걸 볼수있습니다!
 
 ---
