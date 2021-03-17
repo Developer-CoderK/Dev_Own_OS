@@ -43,6 +43,6 @@ th:nth-child(2n+1), td:nth-child(2n+1) {
 	background-color: #e3f2fd;
 }
 
-code {
+pre {
 	background-color: #f6f8fa;
 }
