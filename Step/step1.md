@@ -22,7 +22,8 @@ OS개발에 크로스 컴파일러가 필요하다고 했습니다. 왜 일까�
 등 많은 것들이 필요합니다. 각각 이게 무엇인지 정확히 알 필요는 없습니다. 
 그냥 이런게 필요하구나. 정도로 생각해주세요.
 [OSdev wiki](https://wiki.osdev.org/GCC_Cross-Compiler)에서 조금 페이지를 내려보면 아래와 같은 표가 보입니다.
-![그림1-1](https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/file/image/image1-1.png)영어로 되어 있는 것을 한글로 바꾼것을 봅시다.
+![그림1-1](https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/file/image/image1-1.png)
+영어로 되어 있는 것을 한글로 바꾼것을 봅시다.
 |구분|소스코드|Debian환경|젠투리눅스|Fedora리눅스|Cygwin(윈도우)|OpenBSD|아치 리눅스|
 |---|---|---|---|---|---|---|---|
 |설치방법|...|sudo apt install ~|sudo emerge --ask ~|sudo dnf install ~|설치 프로그램|doas pkg_add ~|pacman -Syu ~|
@@ -47,8 +48,9 @@ OS개발에 크로스 컴파일러가 필요하다고 했습니다. 왜 일까�
   <strong>Your browser does not support the video tag.</strong>
 </video>
 위 영상이나 아래 글을 참고해서 빌드해주세요.
+
 먼저, cygwin을 설치해야 합니다. Cygwin은 리눅스와 같은 환경과 리눅스에서의 여러 패키지를 windows에서 설치할수 있도록 한 프로그램입니다.
-[cygwin 설치](https://www.cygwin.com/install.html)해당 사이트로 접속하면 ![사진 1-2](https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/file/image/image1-2.png)
+![cygwin 설치](https://www.cygwin.com/install.html)해당 사이트로 접속하면 ![사진 1-2](https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/file/image/image1-2.png)
 와 같은 화면이 뜹니다. 사진에서 위 쪽애 64/32비트로 나뉘어져 있습니다. 자신의 컴퓨터에 맞게 설치해주세요.
 그후에 미러사이트 설정 전까지 다음을 눌러줍시다. 그후 미러사이트로 ftp://kr.freebsd.org/를 선택해줍시다.
 그후 패키지 선택 화면에서 
