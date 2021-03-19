@@ -52,7 +52,7 @@ OS개발에 크로스 컴파일러가 필요하다고 했습니다. 왜 일까�
 위 영상이나 아래 글을 참고해서 빌드해주세요.
 
 먼저, cygwin을 설치해야 합니다. Cygwin은 리눅스와 같은 환경과 리눅스에서의 여러 패키지를 windows에서 설치할수 있도록 한 프로그램입니다.
-![cygwin 설치](https://www.cygwin.com/install.html)해당 사이트로 접속하면 ![사진 1-2](https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/file/image/image1-2.png)
+[cygwin 설치](https://www.cygwin.com/install.html)해당 사이트로 접속하면 ![사진 1-2](https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/file/image/image1-2.png)
 와 같은 화면이 뜹니다. 사진에서 위 쪽애 64/32비트로 나뉘어져 있습니다. 자신의 컴퓨터에 맞게 설치해주세요.
 그후에 미러사이트 설정 전까지 다음을 눌러줍시다. 그후 미러사이트로 ftp://kr.freebsd.org/를 선택해줍시다.
 그후 패키지 선택 화면에서 
@@ -70,7 +70,9 @@ libmpc-devel
 texinfo
 ```
 를 다운 받아 주세요.
+
 ---
+
 설치가 다 되었다면 설치 path에 /usr/src에 [binutils](https://ftp.gnu.org/gnu/binutils/)와 [gcc](https://ftp.gnu.org/gnu/gcc/)를 압축해제 후 넣어주세요.
 그후 cygwin terminal을 열어주시고
 `export PREFIX="/usr/cross"` 또한 `export TARGET=i686-elf`를 해주세요.
@@ -98,10 +100,15 @@ make install-gcc
 make install-target-libgcc
 ```
 를 해주시면 GCC빌드또한 마무리 됩니다. 
+
 ---
+
 마지막으로 /usr/cross 를 환경변수로 등록하면 됩니다.
+
 ---
+
 ## 참고 자료
 1. https://wiki.osdev.org/GCC_Cross-Compiler
 2. https://github.com/HIPERCUBE/64bit-Multicore-OS/blob/master/book/Windows.pdf
+
 ---
