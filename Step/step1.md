@@ -45,7 +45,7 @@ OS개발에 크로스 컴파일러가 필요하다고 했습니다. 왜 일까�
 
 ### 빌드
 ##### Windows 10
-<video muted autoplay loop>
+<video muted controls loop width="500" height="350">
   <source src="https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/file/video/windows_cross_build.mp4" type="video/mp4">
   <strong>Your browser does not support the video tag.</strong>
 </video>
