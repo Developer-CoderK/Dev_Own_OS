@@ -55,7 +55,7 @@ window.onload = function () {
 		  }
 			i++;
 		}
-		concept_mark="### 개념\n";
+		concept_mark="### 개념\n```\n";
 		tutorial_mark="### 튜토리얼\n"
 		for (i = 1; i < Object.keys(tutorial).length+1; i++) {
 		  tutorial_mark+="["+i+". "+tutorial[i]+"](http://www.osdev.kro.kr/?stepno="+i+")<br>";
@@ -63,6 +63,7 @@ window.onload = function () {
 		for (i = 1; i < Object.keys(concept).length+1; i++) {
 		  concept_mark+="["+concept[i]+"](http://www.osdev.kro.kr/?conceptno="+i+")<br>";
 		}
+		concept_mark=concept_mark+"\n```";
 		document.getElementById('content').innerHTML =
 			marked(tutorial_mark+"\n"+concept_mark);
 	}else{
