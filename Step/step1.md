@@ -49,6 +49,7 @@ OS개발에 크로스 컴파일러가 필요하다고 했습니다. 왜 일까�
   <source src="https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/file/video/windows_cross_build.mp4" type="video/mp4">
   <strong>Your browser does not support the video tag.</strong>
 </video>
+
 위 영상이나 아래 글을 참고해서 빌드해주세요.
 
 먼저, cygwin을 설치해야 합니다. Cygwin은 리눅스와 같은 환경과 리눅스에서의 여러 패키지를 windows에서 설치할수 있도록 한 프로그램입니다.
