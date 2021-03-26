@@ -1,20 +1,27 @@
-function readfile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    var contenst = -1;
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                contenst = rawFile.responseText;
-            }
-        }
+function readfile(filePath) {
+  var result = null;
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", filePath, false);
+  xmlhttp.send();
+  if (xmlhttp.status==200) {
+    result = xmlhttp.responseText;
+  }
+  return result;
+}
+
+function return_raw(callback,file){
+  fetch("https://api.github.com/repos/KoreaOSdevCommunity/Dev_Own_OS/contents/Step")
+  .then(res => res.json())
+  .then(json => {callback(json,file)});
+}
+
+function github_raw_url(data, file){
+  for(let i = 0; i < data.length; i++){
+    if(data[i]["name"] == file){
+      return raw_url=data[i]["download_url"]
     }
-    rawFile.send(null);
-    return contenst;
+  }
+  return Null;
 }
 
 function searchParam(key) {
@@ -34,7 +41,8 @@ window.onload = function () {
 		var concept = {};
 		var concept_mark = 0;
 		while (1) {
-		  var temp=readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/step"+i+".md");
+		  var raw_url=return_raw(github_raw_url,"step"+i+".md");
+		  var temp=readfile(raw_url);
 		  if(temp!=-1){
 			var no = temp.split('\n')[0].split(' | ')[0];
 			var name = temp.split('\n')[0].split(' | ')[1];
@@ -46,7 +54,8 @@ window.onload = function () {
 		}
 		i=1;
 		while(1){
-		  var temp=readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/concept"+i+".md");
+		  var raw_url=return_raw(github_raw_url,"concept"+i+".md");
+		  var temp=readfile(raw_url);
 		  if(temp!=-1){
 			var no = temp.split('\n')[0].split(' | ')[0];
 			var name = temp.split('\n')[0].split(' | ')[1];
@@ -71,7 +80,8 @@ window.onload = function () {
 		var conceptno=searchParam("conceptno");
 		var search_keyword=searchParam("search");
 		if(conceptno===-1 && search_keyword===-1){
-			var temp = readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/step"+stepno+".md").split("\n");
+			var raw_url=return_raw(github_raw_url,"step"+stepno+".md");
+			var temp = readfile(raw_url).split("\n");
 			var content = "";
 			for(i=1; i < temp.length; i++){
 				content+=temp[i]+"\n";
@@ -79,7 +89,8 @@ window.onload = function () {
 			document.getElementById('content').innerHTML =
 				marked(content);
 		}else if(stepno===-1 && search_keyword===-1){
-			var temp = readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/concept"+conceptno+".md").split("\n");
+			var raw_url=return_raw(github_raw_url,"concept"+conceptno+".md");
+			var temp = readfile(raw_url).split("\n");
 			var content = "";
 			for(i=1; i < temp.length; i++){
 				content+=temp[i]+"\n";
@@ -93,7 +104,8 @@ window.onload = function () {
 			var result='<h2 class="title text-center">"'+search_keyword+'" 검색기록</h2><br>';
 			
 			while (1) {
-			  var temp=readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/step"+i+".md");
+			  var raw_url=return_raw(github_raw_url,"step"+i+".md");;
+			  var temp=readfile(raw_url);
 			  if(temp!=-1){
 				  cont.push(temp);
 			  }else{
@@ -103,7 +115,8 @@ window.onload = function () {
 			}
 			i=1;
 			while(1){
-			  var temp=readfile("https://raw.githubusercontent.com/Developer-CoderK/Dev_Own_OS/main/Step/concept"+i+".md");
+			  var raw_url=return_raw(github_raw_url,"concept"+i+".md");
+			  var temp=readfile(raw_url);
 			  if(temp!=-1){
 				  cont.push(temp);
 			  }else{
